@@ -4,7 +4,9 @@
   align-items: center;
   min-height: 100vh;
   background-color: var(--color-bg-secondary);
-  padding: var(--space-4);
+  padding: 100px var(--space-4) var(--space-4);
+  margin-top: -100px;
+  margin-bottom: 24px; /* Gap before the footer */
   background-image: radial-gradient(circle at center, rgba(14,54,43, 0.05) 0%, transparent 70%);
 }
 

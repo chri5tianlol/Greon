@@ -15,7 +15,7 @@ const Login = ({ onLogin }) => {
     setError('');
     setLoading(true);
     try {
-      const res = await fetch('${import.meta.env.VITE_API_URL}/api/login', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -36,7 +36,7 @@ const Login = ({ onLogin }) => {
   return (
     <div className="auth-container">
       <div className="auth-card fade-in">
-        <img src="/greon_logo.png" alt="Greon" style={{ height: '36px', marginBottom: '24px' }} />
+        <img src="/greon_logo.png" alt="Greon" style={{ height: '36px', width: 'auto', objectFit: 'contain', margin: '0 auto 24px' }} />
         <h2>Welcome to Greon</h2>
         <p className="subtitle">Login to access your high-fidelity renewable energy tools.</p>
         {error && <div className="error-banner">{error}</div>}

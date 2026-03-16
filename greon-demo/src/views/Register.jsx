@@ -16,7 +16,7 @@ const Register = ({ onRegister }) => {
     setError('');
     setLoading(true);
     try {
-      const res = await fetch('${import.meta.env.VITE_API_URL}/api/register', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password })
@@ -37,7 +37,7 @@ const Register = ({ onRegister }) => {
   return (
     <div className="auth-container">
       <div className="auth-card fade-in">
-        <img src="/greon_logo.png" alt="Greon" style={{ height: '36px', marginBottom: '24px' }} />
+        <img src="/greon_logo.png" alt="Greon" style={{ height: '36px', width: 'auto', objectFit: 'contain', margin: '0 auto 24px' }} />
         <h2>Create an Account</h2>
         <p className="subtitle">Sign up to analyze and manage your land's renewable potential.</p>
         
