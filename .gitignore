@@ -1,1 +1,2 @@
 node_modules/\n.env\n.env.local\n.env.development\n.env.test\n.env.production\ndist/\nbuild/
+backend/.env\ngreon-demo/.env\n.env
