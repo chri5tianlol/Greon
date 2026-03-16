@@ -1,0 +1,17 @@
+Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Error: Prisma schema validation - (get-config wasm)
+Error code: P1012
+error: Argument "url" is missing in data source block "db".
+  -->  prisma\schema.prisma:8
+   | 
+ 7 | 
+ 8 | datasource db {
+ 9 |   provider = "sqlite"
+10 | }
+   | 
+
+Validation Error Count: 1
+[Context: getConfig]
+
+Prisma CLI Version : 5.22.0

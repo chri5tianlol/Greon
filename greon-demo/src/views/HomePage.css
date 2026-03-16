@@ -1,0 +1,226 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: -100px; /* Pulls background up under sticky navbar to top edge perfectly */
+  padding-bottom: 80px; /* Separates the bottom section from the footer */
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  padding: 180px 40px 100px;
+  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-content {
+  max-width: 800px;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 56px;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.hero-title span {
+  color: var(--color-accent);
+  background: var(--color-brand-primary);
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: var(--color-text-muted);
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--color-brand-primary);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: var(--radius-full);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--color-hover);
+  color: var(--color-brand-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--color-brand-primary);
+  border: 1px solid var(--color-border);
+  padding: 14px 32px;
+  border-radius: var(--radius-full);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-brand-primary);
+  background: rgba(14, 54, 43, 0.05);
+}
+
+/* Video Section */
+.video-section {
+  padding: 80px 40px;
+  background: #fff;
+}
+
+.video-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--color-bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+}
+
+.video-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: var(--color-brand-primary);
+}
+
+.play-icon {
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.play-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Values Section */
+.values-section {
+  padding: 100px 40px;
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 64px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.value-card {
+  background: #fff;
+  padding: 40px 32px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  transition: transform 0.3s;
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent);
+}
+
+.value-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(120, 230, 208, 0.2);
+  color: var(--color-brand-primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.value-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.value-card p {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 40px;
+  }
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  .video-section {
+    padding: 60px 20px;
+  }
+  .video-container {
+    aspect-ratio: auto;
+    padding: 40px 20px;
+    height: auto;
+    min-height: 250px;
+  }
+  .video-placeholder h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .video-placeholder p {
+    font-size: 14px;
+    text-align: center;
+    padding: 0 10px;
+  }
+}

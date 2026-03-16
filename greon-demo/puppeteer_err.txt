@@ -1,0 +1,5 @@
+CONSOLE: [vite] connecting...\nCONSOLE: %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold\nCONSOLE: [vite] connected.\nCONSOLE: [vite] connecting...\nCONSOLE: [vite] connected.\nCONSOLE: %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold\nPAGE ERROR: ReferenceError: hasProperties is not defined\nCONSOLE: %s
+
+%s
+ An error occurred in the <App> component. Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://react.dev/link/error-boundaries to learn more about error boundaries.\n

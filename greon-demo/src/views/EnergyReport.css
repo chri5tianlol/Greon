@@ -1,0 +1,152 @@
+.energy-report {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.report-header {
+  margin-bottom: var(--space-2);
+}
+
+.report-header h2 {
+  margin-bottom: 4px;
+}
+
+.report-subtitle {
+  color: var(--color-text-muted);
+  font-size: 15px;
+}
+
+/* Daily Averages */
+.averages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.avg-card {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  box-shadow: var(--shadow-sm);
+}
+
+.avg-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.solar-card .avg-icon { background: #fef3c7; color: #f59e0b; }
+.wind-card .avg-icon { background: #dbeafe; color: #3b82f6; }
+.hybrid-card .avg-icon { background: #d1fae5; color: #0e362b; }
+
+.avg-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.avg-label {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.avg-value {
+  font-size: 28px;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  color: var(--color-brand-primary);
+  line-height: 1;
+}
+
+.avg-value small {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+/* Best / Worst Month */
+.extremes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.extreme-card {
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.extreme-card.best { border-left: 4px solid #10b981; }
+.extreme-card.worst { border-left: 4px solid #ef4444; }
+
+.extreme-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: var(--space-3);
+  color: var(--color-brand-primary);
+}
+
+.extreme-card.best .extreme-header { color: #059669; }
+.extreme-card.worst .extreme-header { color: #dc2626; }
+
+.extreme-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.extreme-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-text-main);
+}
+
+.extreme-row span {
+  color: var(--color-text-muted);
+  min-width: 50px;
+}
+
+/* Chart */
+.chart-container {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+
+.chart-container h3 {
+  font-size: 16px;
+  margin-bottom: var(--space-3);
+}
+
+@media (max-width: 768px) {
+  .averages-grid {
+    grid-template-columns: 1fr;
+  }
+  .extremes-grid {
+    grid-template-columns: 1fr;
+  }
+}

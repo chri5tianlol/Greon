@@ -1,0 +1,94 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String         @id @default(uuid())
+  name             String
+  email            String         @unique
+  password         String?
+  subscriptionTier String         @default("free") // "free" or "premium"
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  properties       Property[]
+  scans            PropertyScan[]
+  isAdmin          Boolean        @default(false)
+
+  // Connection Requests
+  sentRequests     ConnectionRequest[] @relation("SentRequests")
+  receivedRequests ConnectionRequest[] @relation("ReceivedRequests")
+}
+
+model Property {
+  id              String   @id @default(uuid())
+  userId          String
+  name            String   @default("My Land")
+  address         String
+  lat             Float
+  lng             Float
+  boundaryGeoJson String?  // Stores the drawn polygon JSON
+  createdAt       DateTime @default(now())
+
+  // Verification
+  verificationStatus      String   @default("unconfirmed") // unconfirmed, in_review, confirmed, declined
+  phoneNumber             String?
+  proofCertificatePath    String?
+  verificationSubmittedAt DateTime?
+  verificationNote        String?
+
+  user            User           @relation(fields: [userId], references: [id])
+  scans           PropertyScan[]
+  requests        ConnectionRequest[]
+}
+
+model PropertyScan {
+  id                   String   @id @default(uuid())
+  userId               String
+  address              String
+  lat                  Float
+  lng                  Float
+  solarPotential       Float?   // e.g., MW/h
+  solarIrradiance      Float?   // direct normal irradiance
+  windSpeed            Float?   // avg wind speed 
+  windPotential        Float?   // e.g., MW/h
+  geminiRecommendation String?
+  reportData           String?  // JSON stringified full energy report
+  rawData              String?  // JSON stringified raw data from providers
+  createdAt            DateTime @default(now())
+  
+  propertyId           String?
+  property             Property? @relation(fields: [propertyId], references: [id])
+  user                 User     @relation(fields: [userId], references: [id])
+}
+
+model NeighborNode {
+  id        String   @id @default(uuid())
+  lat       Float
+  lng       Float
+  capacity  Float    // kW available to share
+  type      String   // "solar", "wind", "hybrid"
+  createdAt DateTime @default(now())
+}
+
+model ConnectionRequest {
+  id                 String   @id @default(uuid())
+  senderId           String
+  receiverId         String
+  receiverPropertyId String
+  status             String   @default("pending") // pending, accepted, declined
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  sender             User     @relation("SentRequests", fields: [senderId], references: [id])
+  receiver           User     @relation("ReceivedRequests", fields: [receiverId], references: [id])
+  property           Property @relation(fields: [receiverPropertyId], references: [id])
+}
+

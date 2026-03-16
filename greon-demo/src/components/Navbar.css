@@ -1,0 +1,163 @@
+/* Floating, rounded navbar wrapper */
+.navbar-wrapper {
+  position: sticky;
+  top: 16px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding: 0 24px;
+  pointer-events: none; /* Allows clicks to pass through the empty sides */
+  margin-bottom: 30px; /* Space below the navbar */
+}
+
+.navbar-container {
+  pointer-events: auto; /* Re-enable clicks inside the pill */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  padding: 10px 24px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 24px rgba(14, 54, 43, 0.08);
+  border-radius: var(--radius-full);
+}
+
+/* Left section: Logo */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  width: 140px; /* Fixed width for symmetrical centering */
+}
+
+.nav-logo {
+  height: 28px;
+  object-fit: contain;
+}
+
+/* Flex wrapper for the right portion */
+.nav-menu-wrapper {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Center section: Links */
+.nav-links {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.nav-link {
+  font-family: var(--font-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--color-brand-primary);
+}
+
+/* Right section: Action Button */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 140px; /* Fixed width matches logo to guarantee perfectly centered links */
+}
+
+.btn-signin {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 24px;
+  border-radius: var(--radius-full);
+  background: var(--color-brand-primary);
+  color: #ffffff;
+  border: 1px solid var(--color-brand-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-signin:hover {
+  background: var(--color-hover);
+  color: var(--color-brand-primary);
+  border-color: var(--color-hover);
+}
+
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-brand-primary);
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Mobile responsive */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar-wrapper {
+    padding: 0 16px;
+    top: 12px;
+  }
+
+  .nav-hamburger {
+    display: block;
+    pointer-events: auto;
+  }
+  
+  .nav-menu-wrapper {
+    display: none;
+  }
+  
+  .nav-menu-wrapper.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 68px; /* Increased from 54px to add spacing */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    gap: 20px;
+    pointer-events: auto;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .nav-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  
+  .btn-signin {
+    width: 100%;
+    text-align: center;
+  }
+}

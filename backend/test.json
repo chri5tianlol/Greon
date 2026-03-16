@@ -1,0 +1,18 @@
+[
+  {
+    place_id: 417419028,
+    licence: 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright',
+    osm_type: 'node',
+    osm_id: 13137833517,
+    lat: '41.3276550',
+    lon: '19.8188207',
+    class: 'amenity',
+    type: 'waste_basket',
+    place_rank: 30,
+    importance: 0.00007137788967722618,
+    addresstype: 'amenity',
+    name: '',
+    display_name: 'Rruga Luigj Gurakuqi, Njësia Bashkiake Nr. 2, Tiranë, Bashkia Tiranë, Qarku i Tiranës, Shqipëria Qendrore, 1002, Shqipëria',
+    boundingbox: [ '41.3276050', '41.3277050', '19.8187707', '19.8188707' ]
+  }
+]
