@@ -2,10 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: var(--color-bg-secondary);
-  padding: 100px var(--space-4) var(--space-4);
-  margin-top: -100px;
+  min-height: calc(100vh - 120px);
+  width: 100%;
+  padding: 0;
+  background-color: transparent;
 }
 
 .onboarding-card {
