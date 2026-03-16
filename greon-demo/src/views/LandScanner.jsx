@@ -86,7 +86,7 @@ const LandScanner = ({ user, onAddLand }) => {
     try {
       const parsedPolygon = prop.boundaryGeoJson ? JSON.parse(prop.boundaryGeoJson) : null;
       
-      const response = await fetch('${import.meta.env.VITE_API_URL}/api/scan', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/scan`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -156,7 +156,7 @@ const LandScanner = ({ user, onAddLand }) => {
     if (!scanResult?.scanId) return;
     setReportLoading(true);
     try {
-      const res = await fetch('${import.meta.env.VITE_API_URL}/api/report', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/report`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

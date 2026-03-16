@@ -4,7 +4,8 @@
   align-items: center;
   min-height: 100vh;
   background-color: var(--color-bg-secondary);
-  padding: var(--space-4);
+  padding: 100px var(--space-4) var(--space-4);
+  margin-top: -100px;
 }
 
 .onboarding-card {

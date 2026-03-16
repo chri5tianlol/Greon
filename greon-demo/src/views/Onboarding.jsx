@@ -96,7 +96,7 @@ const Onboarding = ({ onComplete }) => {
         landName = landNames[existingCount] || `Land ${existingCount + 1}`;
       } catch { /* fallback */ }
 
-      const response = await fetch('${import.meta.env.VITE_API_URL}/api/properties', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/properties`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -117,7 +117,7 @@ const Onboarding = ({ onComplete }) => {
       const newProp = await response.json();
       
       // Auto-scan the property so it's ready in the dashboard
-      const scanRes = await fetch('${import.meta.env.VITE_API_URL}/api/scan', {
+      const scanRes = await fetch(`${import.meta.env.VITE_API_URL}/api/scan`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -18,7 +18,7 @@ const CommunityGrid = () => {
   const currentUserId = localStorage.getItem('greon_userId');
 
   useEffect(() => {
-    fetch('${import.meta.env.VITE_API_URL}/api/community/neighbors')
+    fetch(`${import.meta.env.VITE_API_URL}/api/community/neighbors`)
       .then(res => res.json())
       .then(data => { setNeighbors(data); setLoading(false); })
       .catch(() => setLoading(false));
@@ -38,7 +38,7 @@ const CommunityGrid = () => {
   };
 
   const handleConnect = (node) => {
-    fetch('${import.meta.env.VITE_API_URL}/api/community/connect', {
+    fetch(`${import.meta.env.VITE_API_URL}/api/community/connect`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
