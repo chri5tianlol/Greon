@@ -22,7 +22,7 @@ const VerifyLandModal = ({ property, user, onClose, onSuccess }) => {
       formData.append('phoneNumber', phone);
       formData.append('proofCertificate', file);
 
-      const res = await fetch(`http://localhost:3001/api/properties/${property.id}/verify`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/properties/${property.id}/verify`, {
         method: 'POST',
         body: formData
       });

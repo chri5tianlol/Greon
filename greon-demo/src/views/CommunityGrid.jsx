@@ -18,7 +18,7 @@ const CommunityGrid = () => {
   const currentUserId = localStorage.getItem('greon_userId');
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/community/neighbors')
+    fetch('${import.meta.env.VITE_API_URL}/api/community/neighbors')
       .then(res => res.json())
       .then(data => { setNeighbors(data); setLoading(false); })
       .catch(() => setLoading(false));
@@ -31,14 +31,14 @@ const CommunityGrid = () => {
   }, [currentUserId]);
 
   const fetchRequests = () => {
-    fetch(`http://localhost:3001/api/community/requests?userId=${currentUserId}`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/community/requests?userId=${currentUserId}`)
       .then(res => res.json())
       .then(data => { setRequests(data); setLoadingRequests(false); })
       .catch(() => setLoadingRequests(false));
   };
 
   const handleConnect = (node) => {
-    fetch('http://localhost:3001/api/community/connect', {
+    fetch('${import.meta.env.VITE_API_URL}/api/community/connect', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -53,7 +53,7 @@ const CommunityGrid = () => {
   };
 
   const handleRequestAction = (reqId, status) => {
-    fetch(`http://localhost:3001/api/community/requests/${reqId}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/api/community/requests/${reqId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status, userId: currentUserId })

@@ -11,7 +11,7 @@ const AdminPanel = ({ user }) => {
 
   const fetchVerifications = async () => {
     try {
-      const res = await fetch(`http://localhost:3001/api/admin/verifications?userId=${localStorage.getItem('greon_userId')}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/admin/verifications?userId=${localStorage.getItem('greon_userId')}`);
       const data = await res.json();
       if (res.ok) setVerifications(data);
     } catch { /* ignore */ }
@@ -23,7 +23,7 @@ const AdminPanel = ({ user }) => {
   const handleAction = async (propId, status) => {
     setActionLoading(propId);
     try {
-      const res = await fetch(`http://localhost:3001/api/admin/verifications/${propId}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/admin/verifications/${propId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -94,7 +94,7 @@ const AdminPanel = ({ user }) => {
                 </div>
 
                 {v.proofCertificatePath && (
-                  <a href={`http://localhost:3001/uploads/${v.proofCertificatePath}`} target="_blank" rel="noopener noreferrer" className="admin-pdf-link">
+                  <a href={`${import.meta.env.VITE_API_URL}/uploads/${v.proofCertificatePath}`} target="_blank" rel="noopener noreferrer" className="admin-pdf-link">
                     <FileText size={16} /> View Proof Certificate
                   </a>
                 )}

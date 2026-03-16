@@ -90,13 +90,13 @@ const Onboarding = ({ onComplete }) => {
       const landNames = ['Primary Land', 'Secondary Land', 'Tertiary Land'];
       let landName = 'Primary Land';
       try {
-        const dashRes = await fetch(`http://localhost:3001/api/dashboard?userId=${localStorage.getItem('greon_userId')}`);
+        const dashRes = await fetch(`${import.meta.env.VITE_API_URL}/api/dashboard?userId=${localStorage.getItem('greon_userId')}`);
         const dashData = await dashRes.json();
         const existingCount = dashData?.user?.properties?.length || 0;
         landName = landNames[existingCount] || `Land ${existingCount + 1}`;
       } catch { /* fallback */ }
 
-      const response = await fetch('http://localhost:3001/api/properties', {
+      const response = await fetch('${import.meta.env.VITE_API_URL}/api/properties', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -117,7 +117,7 @@ const Onboarding = ({ onComplete }) => {
       const newProp = await response.json();
       
       // Auto-scan the property so it's ready in the dashboard
-      const scanRes = await fetch('http://localhost:3001/api/scan', {
+      const scanRes = await fetch('${import.meta.env.VITE_API_URL}/api/scan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

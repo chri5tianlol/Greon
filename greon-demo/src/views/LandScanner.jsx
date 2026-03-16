@@ -22,7 +22,7 @@ const LandScanner = ({ user, onAddLand }) => {
   const [showVerifyModal, setShowVerifyModal] = useState(false);
 
   const fetchProperties = () => {
-    fetch(`http://localhost:3001/api/dashboard?userId=${localStorage.getItem('greon_userId')}`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/dashboard?userId=${localStorage.getItem('greon_userId')}`)
       .then(res => res.json())
       .then(data => {
         if (data.user && data.user.properties) {
@@ -86,7 +86,7 @@ const LandScanner = ({ user, onAddLand }) => {
     try {
       const parsedPolygon = prop.boundaryGeoJson ? JSON.parse(prop.boundaryGeoJson) : null;
       
-      const response = await fetch('http://localhost:3001/api/scan', {
+      const response = await fetch('${import.meta.env.VITE_API_URL}/api/scan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -118,7 +118,7 @@ const LandScanner = ({ user, onAddLand }) => {
   const confirmDeleteProperty = async () => {
     if (!propToDelete) return;
     try {
-      const res = await fetch(`http://localhost:3001/api/properties/${propToDelete}?userId=${localStorage.getItem('greon_userId')}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/properties/${propToDelete}?userId=${localStorage.getItem('greon_userId')}`, {
         method: 'DELETE'
       });
       if (res.ok) {
@@ -156,7 +156,7 @@ const LandScanner = ({ user, onAddLand }) => {
     if (!scanResult?.scanId) return;
     setReportLoading(true);
     try {
-      const res = await fetch('http://localhost:3001/api/report', {
+      const res = await fetch('${import.meta.env.VITE_API_URL}/api/report', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

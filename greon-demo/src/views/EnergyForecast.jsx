@@ -14,7 +14,7 @@ const EnergyForecast = () => {
       return;
     }
     
-    fetch(`http://localhost:3001/api/dashboard?userId=${userId}`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/dashboard?userId=${userId}`)
       .then(res => res.json())
       .then(json => {
         setData(json);
